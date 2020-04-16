@@ -6,7 +6,11 @@
         <div class="col-xs-8">
             <p>Alter this sushi to your heart's content:</p>
             <br/>
-        
+            <%# insert edit form %>
+            <%= form_with model:@sushi ,id: :new_sushi do |form|%>
+                <%= form.text_field :name %>
+                <%= form.submit%>
+            <% end %>            
 
         </div>
         <div class="col-xs-4">

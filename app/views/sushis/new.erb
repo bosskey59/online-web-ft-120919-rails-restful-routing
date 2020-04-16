@@ -6,10 +6,9 @@
             <p>You name it, we make it. Fill out your preference and our waiter will bring it directly to you.</p>
             <br/>
             <%# drop our form here %>
-            <%= sushis_path %>
-            <%= form_with url:sushis_path ,id: :new_sushi do |form|%>
+            <%= form_with model:@sushi ,id: :new_sushi do |form|%>
                 <%= form.text_field :name %>
-                <%= form.submit "Create Sushi"%>
+                <%= form.submit%>
             <% end %>
 
             
