@@ -9,5 +9,14 @@
 </div>
 
 <h4 class="red-text"> Name: <%= @sushi.name %></h4>
+<h4 class="red-text"> Created @: <%= created(@sushi) %> </h4>
+<h4>Ingredients:</h4>
+<ul>
+  <% @sushi.ingredients.each do |ing| %>
+  <li><%= ing.name %></li>
+  <% end %>
+</ul>
+
+
 <h6> <%= link_to("Edit", edit_sushi_path(@sushi)) %></h6>
 <h6> <%= link_to("Delete", @sushi, method: :delete, data:{confirm: "Are you Sure?"}) %></h6>

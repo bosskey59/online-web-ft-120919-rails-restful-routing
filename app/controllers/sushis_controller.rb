@@ -1,7 +1,10 @@
 class SushisController < ApplicationController
+    layout "custom"
 
     def index
+        
         @sushis = Sushi.all
+        render :layout => "application"
     end
 
     def show
@@ -14,8 +17,8 @@ class SushisController < ApplicationController
     end
 
     def new
-        @sushi = Sushi.new
-
+        @sushi = Sushi.new 
+        5.times { @sushi.ingredients.build }
     end
 
     def create
@@ -23,6 +26,7 @@ class SushisController < ApplicationController
         if @sushi.save
             redirect_to @sushi
         else
+            # byebug
             render "new"
         end
         
@@ -60,7 +64,7 @@ class SushisController < ApplicationController
 
     private
     def sushi_params
-        params.require(:sushi).permit(:name)
+        params.require(:sushi).permit(:name, ingredients_attributes:[:id,:name, :calories, :ss_grams])
     end
 
 end

@@ -5,12 +5,11 @@
             <br/>
             <p>You name it, we make it. Fill out your preference and our waiter will bring it directly to you.</p>
             <br/>
-            <%# drop our form here %>
-            <%= form_with model:@sushi ,id: :new_sushi do |form|%>
-                <%= form.text_field :name %>
-                <%= form.submit%>
-            <% end %>
 
+            
+           <%# render partial %>
+           <%= render 'form' %>
+           <%# <%= render 'form', sushi:@sushi %>
             
 
 

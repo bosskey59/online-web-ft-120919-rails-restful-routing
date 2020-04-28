@@ -1,0 +1,19 @@
+ <% if @sushi.errors.any? %>
+    <h5 style="color: red;"><%= @sushi.errors.full_messages.to_sentence  %></h5>
+<% end %>
+
+<%# drop our form here %>
+<%= form_with model:@sushi, local: :true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name ,class: @sushi.errors.any? ? "error-field": nil %>
+    <h4>Ingredients</h4>
+    <%= form.fields_for :ingredients do |ing| %>
+        <%= ing.label :name %>
+        <%= ing.text_field :name %>
+        <%= ing.label :calories %>
+        <%= ing.number_field :calories %>
+        <%= ing.label :ss_grams %>
+        <%= ing.number_field :ss_grams %>
+    <% end %>
+    <%= form.submit %>
+<% end %>
